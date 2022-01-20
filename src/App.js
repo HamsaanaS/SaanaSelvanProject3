@@ -23,17 +23,15 @@ function App() {
       <header>
         <h1>It's noon'o'clock somewhere...</h1>
         <h2>Time to get our drink on!</h2>
+
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="searchBar"></label>
+          <input onChange={handleChange} type="text" id="searchBar" value={userInput}/>
+          <button type="submit">Click to Get Inspired</button>
+        </form>
       </header>
 
-      <main>
-        <section>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="searchBar"></label>
-            <input onChange={handleChange} type="text" id="searchBar" value={userInput}/>
-            <button type="submit">Click to Get Inspired</button>
-          </form>
-        </section>
-
+      <main className="wrapper">
         <section>
           {submit ? <Drinks userInput={submit}></Drinks> : null}
         </section>
