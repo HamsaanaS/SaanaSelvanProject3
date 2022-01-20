@@ -3,9 +3,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import Drink from "./Drink.js";
+
 function Drinks({userInput}) {
 
     const [drinkResults, setDrinkResults] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
         axios({
@@ -33,6 +36,7 @@ function Drinks({userInput}) {
                     <div key={drinkObj.idDrink}className="drinkContainer">
                         <img src={drinkObj.strDrinkThumb} alt={drinkObj.strDrink}/>
                         <h3>{drinkObj.strDrink}</h3>
+                        <Drink drinkObj={drinkObj}/>
                         <p>{drinkObj.strInstructions}</p>
                     </div>
                 );
