@@ -26,15 +26,14 @@ function Drinks({userInput}) {
 
     return(
         <>
-            <h2>So what we drinking?</h2>
             {drinkResults.map((drinkObj) => {
                 return(
                     <div key={drinkObj.idDrink} className="drinkContainer">
                         <div className="imgContainer">
                             <img src={drinkObj.strDrinkThumb} alt={drinkObj.strDrink}/>
                         </div>
-                        <h3>{drinkObj.strDrink}</h3>
                         <div className="recipeContainer">
+                            <h3>{drinkObj.strDrink}</h3>
                             <AllIngredients drinkObj={drinkObj}/>
                             <p>{drinkObj.strInstructions}</p>
                         </div>

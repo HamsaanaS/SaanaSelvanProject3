@@ -21,14 +21,18 @@ function App() {
     <div className="App">
 
       <header>
-        <h1>It's noon'o'clock somewhere...</h1>
-        <h2>Time to get our drink on!</h2>
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="searchBar"></label>
-          <input onChange={handleChange} type="text" id="searchBar" value={userInput}/>
-          <button type="submit">Click to Get Inspired</button>
-        </form>
+        <div className="headerContainer wrapper">
+          <h1>It's noon 'o' clock somewhere...</h1>
+          <h2>So what we drinking?</h2>
+
+          <form onSubmit={handleSubmit}>
+            <label className="sr-only" htmlFor="searchBar">Enter your ingredient of choice here</label>
+            <input onChange={handleChange} type="text" id="searchBar" value={userInput}/>
+            <button type="submit">Click and Scroll</button>
+          </form>
+        </div>
+
       </header>
 
       <main className="wrapper">
@@ -38,7 +42,7 @@ function App() {
       </main>
 
       <footer>
-        <p>Created by Saana Selvan <br /> <span>(Juno College 2022)</span></p>
+        <p>Created by Saana Selvan <br /> <a href="https://junocollege.com/">(Juno College 2022)</a></p>
       </footer>
 
     </div>
