@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Drink from "./Drink.js";
+import AllIngredients from "./AllIngredients.js";
 
 function Drinks({userInput}) {
 
     const [drinkResults, setDrinkResults] = useState([]);
-    const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
         axios({
@@ -19,10 +18,7 @@ function Drinks({userInput}) {
                 s: userInput,
             }
         }).then((response) => {
-
-            setDrinkResults(response.data.drinks);
-            console.log(response.data.drinks);
-            
+            setDrinkResults(response.data.drinks);            
         }).catch(err => {
             console.log(err);
         })
@@ -33,11 +29,15 @@ function Drinks({userInput}) {
             <h2>So what we drinking?</h2>
             {drinkResults.map((drinkObj) => {
                 return(
-                    <div key={drinkObj.idDrink}className="drinkContainer">
-                        <img src={drinkObj.strDrinkThumb} alt={drinkObj.strDrink}/>
+                    <div key={drinkObj.idDrink} className="drinkContainer">
+                        <div className="imgContainer">
+                            <img src={drinkObj.strDrinkThumb} alt={drinkObj.strDrink}/>
+                        </div>
                         <h3>{drinkObj.strDrink}</h3>
-                        <Drink drinkObj={drinkObj}/>
-                        <p>{drinkObj.strInstructions}</p>
+                        <div className="recipeContainer">
+                            <AllIngredients drinkObj={drinkObj}/>
+                            <p>{drinkObj.strInstructions}</p>
+                        </div>
                     </div>
                 );
             })}

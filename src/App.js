@@ -37,6 +37,10 @@ function App() {
         </section>
       </main>
 
+      <footer>
+        <p>Created by Saana Selvan <br /> <span>(Juno College 2022)</span></p>
+      </footer>
+
     </div>
   );
 }
